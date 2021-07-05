@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant 消息页面 as news
+participant 通讯录页面 as contacts
+participant 添加成员页面 as add_member
+participant 添加成员页面 as add_member
+participant 添加成员编辑页面 as add_member_edit
+participant 管理通讯录页面 as manage_contact
+participant 编辑成员页面 as member_edit
+
+news -> contacts: 跳转到通讯录界面
+contacts -> add_member: 跳转到添加成员界面
+add_member -> add_member_edit: 点击手动添加，跳转到添加成员编辑界面
+add_member_edit -> add_member: 添加成功，返回到添加成员界面
+add_member -> contacts: 点击返回，查看是否添加成功
+
+contacts -> manage_contact: 点击编辑，跳转成员管理界面
+manage_contact -> member_edit: 点击相应成员，跳转到成员编辑界面
+member_edit -> manage_contact: 编辑成功，跳转到成员管理页面
+manage_contact -> contacts: 点击关闭图标，返回通讯录界面
+
+@enduml
